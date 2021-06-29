@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 /**
  * this is main class EmployeePayrollService
  */
@@ -46,4 +42,18 @@ public class EmployeePayrollService {
 	private void writeEmployeePayrollData() {
 		System.out.println("\nWriting Employee Payroll Roaster to Console\n" + employeePayrollList);
 	}
+
+public void writeEmployeePayrollData(IoService ioService) 
+{
+		if (ioService.equals(IoService.FILE_IO)) {
+			new EmployeePayrollFileIOService().writeData(employeePayrollList);
+		}
+}
+// count the entries
+public long countEntries(IoService ioService) 
+{
+		if (ioService.equals(IoService.FILE_IO))
+			return new EmployeePayrollFileIOService().countEntries();
+		return 0;
+}
 }
