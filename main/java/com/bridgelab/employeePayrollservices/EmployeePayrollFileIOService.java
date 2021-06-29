@@ -1,4 +1,5 @@
 package com.bridgelab.employeePayrollservices;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,6 +22,7 @@ public class EmployeePayrollFileIOService {
 		}
 	}
 
+	// method to count entries
 	public long countEntries() {
 		long entriesNum = 0;
 		try {
@@ -29,5 +31,14 @@ public class EmployeePayrollFileIOService {
 			System.out.println(e.getMessage());
 		}
 		return entriesNum;
+	}
+
+	// print method
+	public void printData() {
+		try {
+			Files.lines(new File(PAYROLL_FILE_NAME).toPath()).forEach(System.out::println);
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
