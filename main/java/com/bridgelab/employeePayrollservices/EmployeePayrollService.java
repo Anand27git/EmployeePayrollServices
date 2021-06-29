@@ -56,4 +56,9 @@ public long countEntries(IoService ioService)
 			return new EmployeePayrollFileIOService().countEntries();
 		return 0;
 }
+//prints file data
+public void printData(IoService ioService) {
+	if (ioService.equals(IoService.FILE_IO))
+		new EmployeePayrollFileIOService().printData();
+}
 }
